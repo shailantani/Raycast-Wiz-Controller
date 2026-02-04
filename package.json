@@ -4,7 +4,7 @@
     "title": "Wiz Controller",
     "description": "Control your Wiz lights from Raycast",
     "icon": "icon.png",
-    "author": "shailantani",
+    "author": "shail_antani",
     "categories": [
         "System",
         "Other"
@@ -13,13 +13,13 @@
     "commands": [
         {
             "name": "turn-on",
-            "title": "Turn On",
+            "title": "Turn on",
             "description": "Turn the Wiz light ON",
             "mode": "no-view"
         },
         {
             "name": "turn-off",
-            "title": "Turn Off",
+            "title": "Turn off",
             "description": "Turn the Wiz light OFF",
             "mode": "no-view"
         },

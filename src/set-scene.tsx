@@ -1,4 +1,11 @@
-import { ActionPanel, Action, Form, showToast, Toast, useNavigation } from "@raycast/api";
+import {
+  ActionPanel,
+  Action,
+  Form,
+  showToast,
+  Toast,
+  useNavigation,
+} from "@raycast/api";
 import { AC_SCENES, sendWizCommand } from "./utils/wiz";
 import { useState } from "react";
 
@@ -10,11 +17,15 @@ interface FormValues {
 
 export default function Command() {
   const { pop } = useNavigation();
-  const [selectedSceneId, setSelectedSceneId] = useState<string>(AC_SCENES[0].id.toString());
+  const [selectedSceneId, setSelectedSceneId] = useState<string>(
+    AC_SCENES[0].id.toString(),
+  );
   const [speedError, setSpeedError] = useState<string | undefined>();
   const [brightnessError, setBrightnessError] = useState<string | undefined>();
 
-  const selectedScene = AC_SCENES.find(s => s.id.toString() === selectedSceneId);
+  const selectedScene = AC_SCENES.find(
+    (s) => s.id.toString() === selectedSceneId,
+  );
   const isDynamic = selectedScene?.isDynamic ?? false;
 
   function validateSpeed(value: string) {
@@ -85,7 +96,11 @@ export default function Command() {
         {categories.map((category) => (
           <Form.Dropdown.Section key={category} title={category}>
             {AC_SCENES.filter((s) => s.category === category).map((scene) => (
-              <Form.Dropdown.Item key={scene.id} value={scene.id.toString()} title={scene.name} />
+              <Form.Dropdown.Item
+                key={scene.id}
+                value={scene.id.toString()}
+                title={scene.name}
+              />
             ))}
           </Form.Dropdown.Section>
         ))}
@@ -99,7 +114,9 @@ export default function Command() {
           defaultValue="100"
           error={speedError}
           onChange={() => setSpeedError(undefined)}
-          onBlur={(event) => setSpeedError(validateSpeed(event.target.value ?? ""))}
+          onBlur={(event) =>
+            setSpeedError(validateSpeed(event.target.value ?? ""))
+          }
         />
       )}
 
@@ -110,7 +127,9 @@ export default function Command() {
         defaultValue="100"
         error={brightnessError}
         onChange={() => setBrightnessError(undefined)}
-        onBlur={(event) => setBrightnessError(validateBrightness(event.target.value ?? ""))}
+        onBlur={(event) =>
+          setBrightnessError(validateBrightness(event.target.value ?? ""))
+        }
       />
     </Form>
   );

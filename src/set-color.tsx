@@ -1,4 +1,11 @@
-import { ActionPanel, Action, Form, showToast, Toast, useNavigation } from "@raycast/api";
+import {
+  ActionPanel,
+  Action,
+  Form,
+  showToast,
+  Toast,
+  useNavigation,
+} from "@raycast/api";
 import { sendWizCommand } from "./utils/wiz";
 import { useState } from "react";
 
@@ -59,7 +66,12 @@ export default function Command() {
         </ActionPanel>
       }
     >
-      <Form.TextField id="color" title="Color" defaultValue="#FFFFFF" placeholder="#RRGGBB" />
+      <Form.TextField
+        id="color"
+        title="Color"
+        defaultValue="#FFFFFF"
+        placeholder="#RRGGBB"
+      />
       <Form.TextField
         id="brightness"
         title="Brightness (%)"

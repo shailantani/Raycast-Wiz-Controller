@@ -55,9 +55,8 @@ interface Preferences {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export async function sendWizCommand(
   method: string,
-  params: Record<string, any> = {},
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-): Promise<any> {
+  params: Record<string, unknown> = {},
+): Promise<unknown> {
   const preferences = getPreferenceValues<Preferences>();
   const ip = preferences.ipAddress;
   const port = 38899;

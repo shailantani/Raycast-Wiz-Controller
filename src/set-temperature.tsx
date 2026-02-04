@@ -1,4 +1,11 @@
-import { ActionPanel, Action, Form, showToast, Toast, useNavigation } from "@raycast/api";
+import {
+  ActionPanel,
+  Action,
+  Form,
+  showToast,
+  Toast,
+  useNavigation,
+} from "@raycast/api";
 import { sendWizCommand } from "./utils/wiz";
 import { useState } from "react";
 
@@ -15,7 +22,8 @@ export default function Command() {
   function validateTemp(value: string) {
     const temp = parseInt(value);
     if (isNaN(temp)) return "Must be a number";
-    if (temp < 2200 || temp > 6200) return "Value must be between 2200 and 6200";
+    if (temp < 2200 || temp > 6200)
+      return "Value must be between 2200 and 6200";
     return undefined;
   }
 
@@ -77,7 +85,9 @@ export default function Command() {
         defaultValue="100"
         error={brightnessError}
         onChange={() => setBrightnessError(undefined)}
-        onBlur={(event) => setBrightnessError(validateBrightness(event.target.value ?? ""))}
+        onBlur={(event) =>
+          setBrightnessError(validateBrightness(event.target.value ?? ""))
+        }
       />
     </Form>
   );
